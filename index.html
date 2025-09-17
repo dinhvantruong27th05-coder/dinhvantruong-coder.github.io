@@ -1,46 +1,181 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Xin chào!</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      margin: 0;
-      padding: 50px;
-    }
-    h1 {
-      color: #fff;
-      font-size: 3em;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    }
-    p {
-      color: #333;
-      font-size: 1.2em;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      font-size: 1.1em;
-      color: white;
-      background: #ff6f61;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    }
-    .button:hover {
-      background: #ff3b2e;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trần Hào Dev — Profile v2</title>
+<meta name="theme-color" content="#000000" />
+<meta name="description" content="LinkBio neon galaxy — DarkStack Team" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' font-size='52'%3E%F0%9F%9A%80%3C/text%3E%3C/svg%3E" />
+<style>
+:root{
+  --bg:#02030A; --fg:#e6ffff; --cyan:#00ffff; --vio:#8a2be2;
+  --glow:0 0 25px rgba(0,255,255,.45),0 0 60px rgba(138,43,226,.25);
+  --card-bg:rgba(2,8,20,.48);
+}
+html,body{
+  height:100%; margin:0; background:var(--bg); color:var(--fg);
+  font-family:system-ui,Segoe UI,Inter,Roboto,Arial,sans-serif;
+  overflow: auto; /* cho phép cuộn trang */
+}
+.wrap{position:relative; z-index:2; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:28px}
+.shell{width:100%; max-width:1100px; display:grid; grid-template-columns:1.1fr .9fr; gap:26px}
+@media (max-width:900px){ .shell{grid-template-columns:1fr; gap:20px} }
+
+.panel{padding:22px; border-radius:18px; background:var(--card-bg); backdrop-filter:saturate(150%) blur(12px); box-shadow:var(--glow); transition:.3s}
+.panel:hover{box-shadow:0 0 50px var(--cyan),0 0 100px var(--vio); transform:scale(1.02)}
+
+.head{display:flex; align-items:center; gap:16px}
+.avatar{position:relative; width:96px; height:96px; border-radius:50%; overflow:hidden; border:2px solid var(--cyan); box-shadow:var(--glow); cursor:pointer; transition:.3s}
+.avatar::after{content:""; position:absolute; inset:-6px; border-radius:50%;
+  background:conic-gradient(from 0deg, rgba(0,255,255,.25), rgba(138,43,226,.25), rgba(0,255,255,.25));
+  filter:blur(14px); z-index:-1; animation:halo 6s linear infinite}
+@keyframes halo{to{transform:rotate(360deg)}}
+.avatar:hover{box-shadow:0 0 60px var(--cyan),0 0 100px var(--vio); transform:scale(1.08)}
+.avatar img{width:100%; height:100%; object-fit:cover}
+.online{position:absolute; right:6px; bottom:6px; width:12px; height:12px; border-radius:50%; background:linear-gradient(135deg,var(--cyan),var(--vio)); box-shadow:0 0 10px var(--cyan)}
+
+.title h1{margin:0; font-size:1.6rem; letter-spacing:.3px; color:var(--cyan); text-shadow:0 0 14px currentColor; display:flex; align-items:center; gap:8px}
+.badge-verify{display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px}
+.badge-verify svg{display:block}
+
+.sub{color:#bfefff; opacity:.9}
+.badges{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 6px}
+.badge{font-size:.9rem; padding:6px 10px; border-radius:10px; background:rgba(0,0,0,.25); border:1px solid rgba(0,255,255,.35); color:var(--fg)} /* Email & phone cùng màu */
+.badge a{color:inherit; text-decoration:none} /* Email không xanh */
+.bio{margin:12px 0 16px; color:#dfffff}
+
+.actions{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+.btn{padding:12px 10px; border-radius:12px; border:1.6px solid var(--cyan); background:transparent; color:var(--cyan); font-weight:700; cursor:pointer; transition:.25s transform,color,box-shadow; text-align:center}
+.btn:hover{transform:translateY(-2px); background:radial-gradient(120% 120% at 50% 10%, rgba(0,255,255,.22), rgba(138,43,226,.22)); box-shadow:var(--glow); color:#001217}
+
+.section{margin:4px 0 12px; color:var(--cyan); font-weight:800; text-shadow:0 0 10px var(--cyan); position:relative}
+.section::after{content:""; position:absolute; left:0; bottom:-6px; width:72px; height:3px; background:linear-gradient(90deg,var(--cyan),var(--vio)); border-radius:2px}
+.grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+@media (max-width:900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:520px){ .grid{grid-template-columns:1fr} }
+.tile{display:flex; justify-content:center; align-items:center; gap:8px; padding:14px 12px; border-radius:14px; text-decoration:none; color:var(--fg); background:rgba(0,0,0,.35); border:1px solid rgba(0,255,255,.25); transition:.25s all}
+.tile:hover{background:radial-gradient(circle at center, rgba(0,255,255,.25), rgba(138,43,226,.2)); box-shadow:var(--glow); transform:scale(1.05)}
+.footer{text-align:center; margin-top:18px; color:#bfefff}
+
+.toast{position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--cyan),var(--vio)); color:#001217; padding:10px 16px; border-radius:12px; font-weight:800; display:none; z-index:5; box-shadow:var(--glow)}
+
+#galaxy{position:fixed; top:0; left:0; width:100%; height:100%; z-index:0}
+
+/* Keyboard focus */
+:focus-visible{outline:2px dashed var(--cyan); outline-offset:4px}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion:reduce){
+  .panel:hover,.avatar:hover{transform:none}
+  .avatar::after{animation:none}
+}
+</style>
 </head>
 <body>
-  <h1>👋 Chào mừng bạn đến với website của tôi!</h1>
-  <p>Đây là trang web đầu tiên mình tạo bằng GitHub Pages 🚀</p>
-  <a href="https://github.com/" class="button">Xem GitHub</a>
+<canvas id="galaxy" aria-hidden="true"></canvas>
+<div class="wrap">
+  <div class="shell">
+    <!-- Hồ sơ -->
+    <section class="panel" aria-label="Hồ sơ">
+      <div class="head">
+        <div class="avatar" id="avatar" title="Nhấn để thả tim">
+          <img src="https://i.imgur.com/XHXxqtU.jpeg" alt="Avatar" loading="lazy" />
+          <span class="online" aria-hidden="true"></span>
+        </div>
+        <div class="title">
+          <h1>Trần Hào Dev
+            <span class="badge-verify" title="Verified">
+              <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 2l2.3 1.3 2.6-.1 1.7 2 .1 2.6L20 10l1.7 2.2-.1 2.6-1.7 2-2.6-.1L12 22l-2.3-1.3-2.6.1-1.7-2-.1-2.6L4 12l-1.7-2.2.1-2.6 1.7-2 2.6.1L12 2z" fill="url(#g)"/>
+                <path d="M10.2 13.3l-2-2 1.4-1.4 1.3 1.3 3.5-3.5 1.4 1.4-4.9 5.2z" fill="#001217"/>
+                <defs><linearGradient id="g" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#00ffff"/><stop offset="1" stop-color="#8a2be2"/></linearGradient></defs>
+              </svg>
+            </span>
+          </h1>
+          <div class="sub">Coder • Reverse Eng • 0xSec</div>
+        </div>
+      </div>
+      <!-- Badges tách riêng, email cùng màu fg -->
+      <div class="badges">
+        <span class="badge">📍 Hồ Chí Minh, Việt Nam</span>
+        <span class="badge">☎ 0559705922</span>
+        <span class="badge">✉ haohaone1029@gmail.com</span>
+      </div>
+      <p class="bio">💻 Developer | Tool | MMO | DarkStack 💕</p>
+      <div class="actions">
+        <a class="btn" id="cta" href="https://www.facebook.com/haomundev" target="_blank" rel="noopener">LIÊN HỆ</a>
+        <button class="btn" id="toggleMusicBtn" aria-pressed="true">🔊 Tắt nhạc</button>
+      </div>
+    </section>
+
+    <!-- Liên kết & mạng xã hội -->
+    <section class="panel" aria-label="Liên kết & mạng xã hội">
+      <div class="section">Tài nguyên</div>
+      <div class="grid">
+        <a class="tile" href="https://github.com/haohaone1029" target="_blank" rel="noopener">💻 <strong>GitHub</strong></a>
+        <a class="tile" href="https://trongtraicay.shop/" target="_blank" rel="noopener">👀 <strong>Shop Scoure</strong></a>
+        <a class="tile" href="https://t.me/darkstackteam" target="_blank" rel="noopener">📝 <strong>Nhóm Tele</strong></a>
+      </div>
+      <div class="section">Theo dõi nhanh</div>
+      <div class="grid">
+        <a class="tile" href="https://www.youtube.com/@Haomungaming" target="_blank" rel="noopener">▶ <strong>YouTube</strong></a>
+        <a class="tile" href="https://www.facebook.com/haomundev" target="_blank" rel="noopener">📘 <strong>Facebook</strong></a>
+        <a class="tile" href="https://zalo.me/0559705922" target="_blank" rel="noopener">💬 <strong>Zalo</strong></a>
+        <a class="tile" href="#">✉ <strong>Email</strong></a>
+        <a class="tile" href="#" id="copyMail">📎 <strong>Copy Email</strong></a>
+        <a class="tile" href="#" id="copyPhone">📞 <strong>Copy Phone</strong></a>
+      </div>
+      <div class="footer">© 2025 • Trần Hào Dev | DarkStack Team</div>
+    </section>
+  </div>
+</div>
+
+<div class="toast" id="toast">Đã copy!</div>
+
+<audio id="backgroundAudio" loop preload="auto" style="display:none">
+  <source src="https://pomf2.lain.la/f/l5nv41b6.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+// Music toggle
+const audio=document.getElementById('backgroundAudio');
+const btn=document.getElementById('toggleMusicBtn');
+(async()=>{try{await audio.play();}catch{btn.textContent='🔈 Bật nhạc';}})();
+btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn.textContent='🔊 Tắt nhạc';} else { audio.pause(); btn.textContent='🔈 Bật nhạc'; }});
+
+// Toast + copy
+const toast=document.getElementById('toast');
+function showToast(text){ toast.textContent=text; toast.style.display='block'; clearTimeout(showToast.t); showToast.t=setTimeout(()=>toast.style.display='none',1500); }
+function safeCopy(t){ if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(()=>showToast('Đã copy!'));} else { const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); showToast('Đã copy!'); }}
+document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('haohaone1029@gmail.com')});
+document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('0559705922')});
+
+// Avatar click hearts
+const avatar=document.getElementById('avatar');
+avatar.addEventListener('click',(e)=>{for(let i=0;i<7;i++) spawnHeart(e.offsetX??48, e.offsetY??48);});
+function spawnHeart(x,y){
+  const el=document.createElement('div'); el.textContent='💖'; el.style.position='absolute'; el.style.left=x+'px'; el.style.top=y+'px'; el.style.pointerEvents='none';
+  const fs=14+Math.random()*12; el.style.fontSize=fs+'px'; el.style.opacity=1;
+  const dx=(Math.random()-.5)*60, dy=-(30+Math.random()*60); const rot=(Math.random()-.5)*60;
+  avatar.appendChild(el); const t0=performance.now();
+  function step(t){ const k=Math.min(1,(t-t0)/900); el.style.transform=`translate(${dx*k}px, ${dy*k}px) rotate(${rot*k}deg)`; el.style.opacity=(1-k).toFixed(2); if(k<1) requestAnimationFrame(step); else el.remove(); }
+  requestAnimationFrame(step);
+}
+
+// Galaxy background
+const cvs=document.getElementById('galaxy'), ctx=cvs.getContext('2d');
+let W,H,stars=[],meteors=[]; function size(){W=cvs.width=innerWidth; H=cvs.height=innerHeight}
+function makeStars(n){stars=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.5+.2,v:Math.random()*0.25+0.08}))}
+function draw(){ctx.clearRect(0,0,W,H);
+  const grd=ctx.createRadialGradient(W*.7,H*.3,0,W*.7,H*.3,Math.max(W,H)*.8); grd.addColorStop(0,'rgba(0,255,255,.06)'); grd.addColorStop(1,'transparent'); ctx.fillStyle=grd; ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#fff'; for(const s of stars){ s.y+=s.v; if(s.y>H){s.y=0; s.x=Math.random()*W} ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fill(); }
+  ctx.strokeStyle=getComputedStyle(document.documentElement).getPropertyValue('--cyan'); ctx.lineWidth=1.6;
+  for(let i=meteors.length;i--;){ const m=meteors[i]; ctx.beginPath(); ctx.moveTo(m.x,m.y); ctx.lineTo(m.x-m.l*.6,m.y+m.l); ctx.stroke(); m.x+=m.v*.35; m.y+=m.v; if(m.y>H) meteors.splice(i,1); }
+  if(Math.random()<0.015) meteors.push({x:Math.random()*W,y:0,l:Math.random()*90+40,v:Math.random()*4+5});
+  requestAnimationFrame(draw);
+}
+addEventListener('resize',()=>{size(); makeStars(280)}); size(); makeStars(280); draw();
+</script>
 </body>
-</html>
+</html
