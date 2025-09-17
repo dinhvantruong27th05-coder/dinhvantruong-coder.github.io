@@ -145,8 +145,8 @@ btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn
 const toast=document.getElementById('toast');
 function showToast(text){ toast.textContent=text; toast.style.display='block'; clearTimeout(showToast.t); showToast.t=setTimeout(()=>toast.style.display='none',1500); }
 function safeCopy(t){ if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(()=>showToast('Đã copy!'));} else { const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); showToast('Đã copy!'); }}
-document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('haohaone1029@gmail.com')});
-document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('0559705922')});
+document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('vtruong12345t@gmail.com')});
+document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('0981251350')});
 
 // Avatar click hearts
 const avatar=document.getElementById('avatar');
