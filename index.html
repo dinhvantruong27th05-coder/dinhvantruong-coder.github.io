@@ -99,12 +99,12 @@ html,body{
       <!-- Badges tách riêng, email cùng màu fg -->
       <div class="badges">
         <span class="badge">📍 Hà Tĩnh , Việt Nam</span>
-        <span class="badge">☎ 0981251350</span>
-        <span class="badge">✉ vtruong12345t@gmail.com</span>
+        <span class="badge">☎ sdt</span>
+        <span class="badge">✉ gmail</span>
       </div>
       <p class="bio">  ĐỪNG NHÌN AVT 🫃💻 CÔNG VIỆC LIÊN HỆ THÔNG TIN Ở BÊN DƯỚI   💕</p>
       <div class="actions">
-        <a class="btn" id="cta" href="https://www.facebook.com/share/19yviVjjte/?mibextid=wwXIfr" target="_blank" rel="noopener">LIÊN HỆ</a>
+        <a class="btn" id="cta" href="FB" target="_blank" rel="noopener">LIÊN HỆ</a>
         <button class="btn" id="toggleMusicBtn" aria-pressed="true">🔊 Tắt nhạc</button>
       </div>
     </section>
@@ -113,18 +113,7 @@ html,body{
     <section class="panel" aria-label="Liên kết & mạng xã hội">
       <div class="section">Chào mừng các bạn đến với bio của mình </div>
       <div class="grid">
-      </div>
-      <div class="section">Thông tin liên hệ </div>
-      <div class="grid">
-       <a class="tile" href="https://vt.tiktok.com/ZSDUrAsuV/" target="_blank" rel="noopener">🫃🫃🫃 <strong>Tus check uy tín</strong></a>
-        <a class="tile" href="https://www.tiktok.com/@vantruong_111?_t=ZS-8znfe5sI1Yb&_r=1" target="_blank" rel="noopener">▶ <strong>TikTok</strong></a>
-        <a class="tile" href="https://www.tiktok.com/@naogiauhonemthidoiten?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">▶ <strong>TikTok2</strong></a>
-        <a class="tile" href="https://www.facebook.com/share/19yviVjjte/?mibextid=wwXIfr" target="_blank" rel="noopener">📘 <strong>Facebook</strong></a>
-         <a class="tile" href="https://www.instagram.com/van30512?igsh=MWJpd20xN2R1eXV0dQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">🫃 <strong>ig</strong></a>
-        <a class="tile" href="https://zalo.me/0981251350" target="_blank" rel="noopener">💬 <strong>Zalo</strong></a>
-        <a class="tile" href="#">✉ <strong>Email</strong></a>
-        <a class="tile" href="#" id="copyMail">📎 <strong>Copy Email</strong></a>
-        <a class="tile" href="#" id="copyPhone">📞 <strong>Copy Phone</strong></a>
+  ......
       </div>
       <div class="footer">© 2025 • Văn Trường | BIO LINK </div>
     </section>
@@ -148,8 +137,8 @@ btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn
 const toast=document.getElementById('toast');
 function showToast(text){ toast.textContent=text; toast.style.display='block'; clearTimeout(showToast.t); showToast.t=setTimeout(()=>toast.style.display='none',1500); }
 function safeCopy(t){ if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(()=>showToast('Đã copy!'));} else { const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); showToast('Đã copy!'); }}
-document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('vtruong12345t@gmail.com')});
-document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('0981251350')});
+document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('gmail')});
+document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('sdt')});
 
 // Avatar click hearts
 const avatar=document.getElementById('avatar');
