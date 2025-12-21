@@ -112,6 +112,7 @@ html,body{
      <!-- Liên kết & mạng xã hội -->
     <section class="panel" aria-label="Liên kết & mạng xã hội">
       <div class="section">Chào Bạn</div>
+       <a class="tile" href="https://sublikevip.online " target="_blank" rel="noopener">💬 <strong>Web sub</strong></a>
       <div class="grid">
       </div>
       <div class="section">Thông tin  </div>
@@ -144,8 +145,8 @@ btn.addEventListener('click',async()=>{ if(audio.paused){await audio.play(); btn
 const toast=document.getElementById('toast');
 function showToast(text){ toast.textContent=text; toast.style.display='block'; clearTimeout(showToast.t); showToast.t=setTimeout(()=>toast.style.display='none',1500); }
 function safeCopy(t){ if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).then(()=>showToast('Đã copy!'));} else { const ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); showToast('Đã copy!'); }}
-document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('033333333')});
-document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('dicampuchiathiib@gmai.com')});
+document.getElementById('copyMail')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('0927419817')});
+document.getElementById('copyPhone')?.addEventListener('click',(e)=>{e.preventDefault(); safeCopy('dinhvantruong27th05@gmail.com')});
 
 // Avatar click hearts
 const avatar=document.getElementById('avatar');
